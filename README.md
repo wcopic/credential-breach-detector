@@ -1,26 +1,60 @@
-# Credential Breach Detector + Benchmark
+# Credential Breach Detector & Benchmark
 
-Este proyecto implementa un sistema para auditar credenciales y detectar contraseñas vulneradas. El programa realiza un experimento de rendimiento comparando el tiempo de ejecución entre una estructura de Tabla Hash (con complejidad O(1) mediante Separate Chaining), Tabla Hash (con complejidad O(1) mediante Linear Probing) y una búsqueda lineal en una lista común (complejidad O(n)). 
+A Python-based credential auditing system designed to detect compromised passwords and compare the performance of different search and hashing algorithms.
 
-[Aviso] Este proyecto no usa NINGUNA libreria externa, solo usa las nativas de Python (solo para la interfaz)
+The project performs a benchmarking experiment using three different approaches:
 
-## Requisitos
+* **Hash Table — Separate Chaining:** `O(1)` average-case lookup
+* **Hash Table — Linear Probing:** `O(1)` average-case lookup
+* **Linear Search:** `O(n)` lookup
 
-* Python 3.x instalado en el sistema.
+The system identifies compromised credentials and measures the execution time of each approach, allowing their performance to be compared using the same dataset.
 
-## Archivos de Ejemplo
+> **Note:** This project does not use any external Python libraries. It relies exclusively on Python's standard library, including the libraries used for the graphical interface.
 
-Para facilitar las pruebas, el repositorio incluye una carpeta llamada `archivos_ejemplo` con datos listos para el experimento:
+## Requirements
 
-* `[BD] 100k-most-used-passwords-NCSC.txt`: Actúa como la base de datos masiva de contraseñas comprometidas.
-* `[PWD] Pwdb_top-10000.txt`: Actúa como el archivo de credenciales sospechosas que el sistema va a revisar.
+* Python 3.x
 
-## Como usar el programa
+## Example Files
 
-1. Abre la terminal en la carpeta principal del proyecto.
-2. Ejecuta el archivo principal con el comando:
+For testing purposes, the repository includes an `archivos_ejemplo` directory containing datasets ready to use with the program.
+
+* `[BD] 100k-most-used-passwords-NCSC.txt` — Dataset containing a large list of compromised passwords.
+* `[PWD] Pwdb_top-10000.txt` — Dataset containing passwords to be checked against the compromised-password database.
+
+## How to Run
+
+1. Open a terminal in the project's root directory.
+
+2. Run the main program:
+
+   ```bash
    python main.py
-3. El programa abrirá una ventana emergente (Paso 1). Navega hasta la carpeta `archivos_ejemplo` y selecciona el archivo de la Base de Datos (ej. `[BD] 100k-most-used-passwords-NCSC.txt`).
-4. A continuación, se abrirá una segunda ventana (Paso 2). Selecciona el archivo de contraseñas a revisar (ej. `[PWD] Pwdb_top-10000.txt`).
-5. El sistema leerá los datos, ejecutará ambas búsquedas y mostrará en la consola las vulnerabilidades encontradas junto con los tiempos de ejecución comparativos.
-6. Al finalizar, se generará automáticamente un archivo llamado `REPORTE_FINAL.txt` en el directorio principal con todo el detalle de las contraseñas vulneradas y las métricas de rendimiento.
+   ```
+
+3. A file selection window will open (**Step 1**). Navigate to the `archivos_ejemplo` directory and select the database file, for example:
+
+   ```text
+   [BD] 100k-most-used-passwords-NCSC.txt
+   ```
+
+4. A second file selection window will open (**Step 2**). Select the password dataset to be analyzed, for example:
+
+   ```text
+   [PWD] Pwdb_top-10000.txt
+   ```
+
+5. The system will load the datasets, execute the three search implementations, and display the detected compromised credentials along with their respective execution times.
+
+6. Once the process is complete, the program will automatically generate a `REPORTE_FINAL.txt` file in the project's root directory containing:
+
+   * Detected compromised passwords
+   * Execution times for each implementation
+   * Performance comparison results
+
+## Academic Context
+
+This project was developed as part of the **Data Structures and Algorithms II** course at **Universidad de Lima**.
+The project focuses on applying data structures and algorithm analysis to a practical cybersecurity-related problem, specifically credential auditing and compromised password detection.
+
