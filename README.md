@@ -1,4 +1,4 @@
-# Sistema de Deteccion de Credenciales (Proyecto EDA2)
+# Credential Breach Detector + Benchmark
 
 Este proyecto implementa un sistema para auditar credenciales y detectar contraseñas vulneradas. El programa realiza un experimento de rendimiento comparando el tiempo de ejecución entre una estructura de Tabla Hash (con complejidad O(1) mediante Separate Chaining), Tabla Hash (con complejidad O(1) mediante Linear Probing) y una búsqueda lineal en una lista común (complejidad O(n)). 
 
